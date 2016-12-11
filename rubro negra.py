@@ -8,6 +8,10 @@ class no:
 		
 sentinela = no(None, "preto")
 
+
+
+
+
 class arvore:
 	
 	
@@ -39,6 +43,10 @@ class arvore:
 						atual = atual.direita
 				else:
 					break
+		try: 
+			arruma_rn(atual)
+		except:
+			pass
 	
 	
 
@@ -113,4 +121,14 @@ class arvore:
 	
 	
 	
-	
+	def maximo (self):
+		iterador = self.raiz
+		while (iterador.direita != sentinela):
+			iterador = iterador.direita
+		 return iterador.valor
+		 
+	def minimo (self):
+		iterador = self.raiz
+		while (iterador.esquerda != sentinela):
+			iterador = iterador.esquerda
+		return iterador.valor
