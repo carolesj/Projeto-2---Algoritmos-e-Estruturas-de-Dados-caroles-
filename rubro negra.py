@@ -121,14 +121,63 @@ class arvore:
 	
 	
 	
-	def maximo (self):
-		iterador = self.raiz
+	def maximo (self, no_inicial = None):
+		iterador = no_inicial or self.raiz
 		while (iterador.direita != sentinela):
 			iterador = iterador.direita
 		 return iterador.valor
 		 
-	def minimo (self):
-		iterador = self.raiz
+	
+	
+	def minimo (self, no_inicial = None):
+		iterador = no_inicial or self.raiz
 		while (iterador.esquerda != sentinela):
 			iterador = iterador.esquerda
 		return iterador.valor
+		
+	def busca (self, valor) :
+		atual = self.raiz
+		while (True) :
+			if (atual == sentinela) :
+				return "erro"
+			elif (valor > atual) :
+				atual = atual.direita
+			elif (valor < atual) :
+				atual = atual.esquerda
+			else :
+				return atual
+		
+	
+	def predecessor (self, valor):
+		alvo = busca (valor)
+		if (alvo == "erro") :
+			return "erro"
+		else:
+			if (alvo.esquerda != sentinela) :
+				maxi = self.maximo(alvo.esquerda)
+				return maxi.valor
+			else:
+				while (alvo != self.raiz and alvo == alvo.pai.esquerda):
+					alvo = alvo.pai
+				if (alvo == self.raiz):
+					return "erro"
+				else: 
+					return alvo.esquerda.valor
+		
+		
+	
+	def sucessor (self, valor):
+		alvo = busca (valor)
+		if (alvo == "erro") :
+			return "erro"
+		else:
+			if (alvo.direita != sentinela) :
+				mini = self.minimo(alvo.direita)
+				return mini.valor
+			else:
+				while (alvo != self.raiz and alvo == alvo.pai.direita):
+					alvo = alvo.pai
+				if (alvo == self.raiz):
+					return "erro"
+				else: 
+					return alvo.direita.valor
