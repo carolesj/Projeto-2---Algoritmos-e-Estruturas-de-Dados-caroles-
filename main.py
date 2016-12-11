@@ -9,13 +9,13 @@ def main () :
 		if (O[0] == "1") :
 			rubro_negra.insercao(int(O[1]))
 		elif (O[0] == "2") :
-			rubro_negra.sucessor(int(O[1]))
+			print(rubro_negra.sucessor(int(O[1])))
 		elif (O[0] == "3") :
-			rubro_negra.predecessor(int(O[1]))
+			print(rubro_negra.predecessor(int(O[1])))
 		elif (O == "4") :
-			rubro_negra.maximo()
+			print(rubro_negra.maximo())
 		elif (O == "5") :
-			rubro_negra.minimo()
+			print(rubro_negra.minimo())
 		elif (O == "6") :
 			rubro_negra.preordem()
 		elif (O == "7") :
